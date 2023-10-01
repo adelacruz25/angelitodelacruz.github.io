@@ -1,0 +1,70 @@
+<%- include('partials/header') %>
+<main>
+  <h1>Contact Me</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <form action="/contact" method="post" id="contact-form">
+          <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input type="text" class="form-control custom-input" id="firstName" name="firstName" required>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input type="text" class="form-control custom-input" id="lastName" name="lastName" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control custom-input" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea class="form-control custom-input" id="message" name="message" rows="4" required></textarea>
+          </div>
+          <center><br>
+            <button type="submit" class="btn btn-primary">Send</button>
+          </center>
+        </form>
+        <!-- Success message -->
+        <center><div class="success-message" id="success-message" style="display: none;">
+          Message sent successfully!
+        </div></center>
+      </div>
+    </div>
+  </div>
+</main>
+<%- include('partials/footer') %>
+
+<style>
+  /* Custom CSS for the form fields */
+  .custom-input {
+    border: 1px solid #050505; /* Add a border around the form fields */
+    background-color: #f5f0f0; /* Set a background color for the form */
+    padding: 10px; /* Add some padding for better spacing */
+    border-radius: 5px; /* Add rounded corners */
+  }
+</style>
+
+<script>
+  // JavaScript to show success message
+  const contactForm = document.getElementById('contact-form');
+  const successMessage = document.getElementById('success-message');
+
+  contactForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    // Simulate sending data to the server (replace with actual AJAX request)
+    setTimeout(function () {
+      // Display the success message
+      successMessage.style.display = 'block';
+
+      // Clear the form
+      contactForm.reset();
+
+      // Hide the success message after a few seconds (optional)
+      setTimeout(function () {
+        successMessage.style.display = 'none';
+      }, 3000); // 3000 milliseconds (3 seconds)
+    }, 1000); // Simulated delay for demonstration (1 second)
+  });
+</script>

@@ -1,0 +1,63 @@
+<!-- Include Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+<!-- Header with Bootstrap classes and your logo -->
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <!-- Brand/logo -->
+      <a class="navbar-brand" href="/home">
+        <!-- Insert your logo image here -->
+        <img src="/images/MyLogo.jpg" alt="My Logo" class="logo-img">
+      </a>
+      <!-- Collapsible navigation menu -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <center>
+        <div class="container">
+          <h1 class="animated-title">WebAngel Innovations Portfolio</h1>
+          <div class="row">
+            <form action="/search" method="get" class="form-inline">
+              <!-- Search Bar -->
+              <input type="text" class="form-control w-100" placeholder="Search..." name="query" style="font-size: 14px; padding: 5px 10px; border: 1px solid #676464;">
+              <button class="btn btn-primary w-20 mt-2" type="submit" style="font-size: 14px; padding: 5px 10px;">Search</button>
+            </form>
+          </div>
+          <div id="noResultsMessage" style="display: none;">No results found</div>
+          
+          <script>
+            document.querySelector("form").addEventListener("submit", function (e) {
+              // Check if the search query is empty or not
+              const query = document.querySelector("input[name='query']").value.trim();
+              if (!query) {
+                // If the search query is empty, prevent the form submission and show the message
+                e.preventDefault();
+                document.getElementById("noResultsMessage").style.display = "block";
+              }
+            });
+          </script>
+          
+    </center>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto"> <!-- Add ml-auto class for right alignment -->
+          <li class="nav-item">
+            <a class="nav-link" href="/home" style="font-size: 20px; padding: 10px;">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about" style="font-size: 20px; padding: 10px;">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/projects" style="font-size: 20px; padding: 10px;">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/services" style="font-size: 20px; padding: 10px;">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact" style="font-size: 20px; padding: 10px;">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
